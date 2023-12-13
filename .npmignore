@@ -1,0 +1,10 @@
+index.html
+package.json/src
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+.eslint.cjs
+.gitignore
+.postcss.config.json
+tailwind.config.json
+/src
