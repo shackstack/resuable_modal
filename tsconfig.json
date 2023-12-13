@@ -11,19 +11,15 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "noEmit": true,
     "jsx": "react-jsx",
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-
-    /* npm deployment */
-    "noEmit": false,
-    "declaration": true,
-    "outDir": "./dist"
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/lib/**/*.tsx", "src/lib/**/*.ts"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
