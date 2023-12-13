@@ -1,34 +1,26 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import * as path from 'path';
 
-// https://vitejs.dev/config/
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
+
 export default defineConfig({
-  plugins: [
-    react(),
-    dts({
-      insertTypesEntry: true,
-    }),
-    tsconfigPaths(),
-  ],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.tsx'),
-      name: '(라이브러리 이름)',
-      formats: ['es', 'cjs'],
-      fileName: (format) => `index.${format}.js`,
+      entry: path.resolve(__dirname, 'src/lib/index.tsx'),
+      name: 'index',
+      fileName: 'index',
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'styled-components', '**/*.stories.tsx'],
+      external: ['react'],
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM',
-          'styled-components': 'styled',
         },
-        banner: '"use client";',
-        interop: 'compat',
       },
     },
-    ssr: false,
+    commonjsOptions: {
+      esmExternals: ['react'],
+    },
   },
+  plugins: [dts()],
 });
