@@ -1,5 +1,5 @@
 index.html
-package.json/src
+package.json
 tsconfig.json
 tsconfig.node.json
 vite.config.ts
